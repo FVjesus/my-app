@@ -85,10 +85,10 @@ const styles = StyleSheet.create({
   },
   textDescription: {
     color: "white",
-    fontSize: 12,
+    fontSize: 14,
   },
   textDescriptionLink: {
     color: "#4B0082",
-    fontSize: 12,
+    fontSize: 14,
   },
 });

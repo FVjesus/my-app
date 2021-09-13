@@ -36,6 +36,13 @@ export default function TabOneScreen({
       <TouchableOpacity style={styles.button} onPress={() => updateUser(null)}>
         <Text>Sair</Text>
       </TouchableOpacity>
+
+      <TouchableOpacity
+        style={styles.button}
+        onPress={() => navigation.navigate("RegisterMovie")}
+      >
+        <Text>Cadastrar Filme</Text>
+      </TouchableOpacity>
     </View>
   );
 }

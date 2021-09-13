@@ -47,7 +47,7 @@ export const RegisterScreen = ({ navigation }: any): ReactElement => {
         <Text style={styles.textButton}>Criar conta</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-        <Text style={styles.textDescriptionLink}>Já tenho conta</Text>
+        <Text style={styles.textDescriptionLink}>Já tenho conta!</Text>
       </TouchableOpacity>
     </View>
   );
@@ -90,6 +90,6 @@ const styles = StyleSheet.create({
   },
   textDescriptionLink: {
     color: "#4B0082",
-    fontSize: 12,
+    fontSize: 14,
   },
 });
