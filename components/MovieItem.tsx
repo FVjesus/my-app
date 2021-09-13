@@ -1,17 +1,29 @@
 import * as React from "react";
 import { ReactElement } from "react";
 import { StyleSheet, Image, TouchableOpacity } from "react-native";
+import { MovieContext } from "../contexts/MovieContext";
 
 import { MovieBase } from "../types";
 import { Text } from "./Themed";
 
 export interface IMovieItemProps {
   movie: MovieBase;
+  navigation: any;
 }
 
-export const MovieItem = ({ movie }: IMovieItemProps): ReactElement => {
+export const MovieItem = ({
+  movie,
+  navigation,
+}: IMovieItemProps): ReactElement => {
+  const { updateMovie } = React.useContext(MovieContext);
+
+  const handleClick = () => {
+    updateMovie(movie.id);
+    navigation.navigate("Movie");
+  };
+
   return (
-    <TouchableOpacity style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={handleClick}>
       <Image
         style={styles.movieImage}
         source={{

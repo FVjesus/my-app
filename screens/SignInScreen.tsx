@@ -1,11 +1,13 @@
 import * as React from "react";
 import { ReactElement, useContext, useState } from "react";
-import { StyleSheet, TextInput } from "react-native";
+import { StyleSheet, TextInput, Image } from "react-native";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
 import { Text, View } from "../components/Themed";
 import { UserContext } from "../contexts/UserContext";
 import { UserService } from "../services/UserService";
+
+import logo1 from "../assets/images/logo1.png";
 
 export const SignInScreen = ({ navigation }: any): ReactElement => {
   const [email, setEmail] = useState<string>();
@@ -25,6 +27,7 @@ export const SignInScreen = ({ navigation }: any): ReactElement => {
 
   return (
     <View style={styles.container}>
+      <Image source={logo1} style={styles.logo} />
       <Text style={styles.title}>Login</Text>
       <TextInput
         style={styles.input}
@@ -91,5 +94,9 @@ const styles = StyleSheet.create({
     color: "#4B0082",
     fontSize: 14,
     fontWeight: "bold",
+  },
+  logo: {
+    width: 250,
+    height: 200,
   },
 });

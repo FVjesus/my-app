@@ -1,6 +1,7 @@
 import {
   CreateFavoriteReturn,
   CreateMovieReturn,
+  FindMovieReturn,
   GetMoviesReturn,
 } from "../types";
 import { Client } from "./Client";
@@ -34,4 +35,6 @@ export const MovieService = {
   },
   get: async (userId: number): Promise<GetMoviesReturn> =>
     Client.get(`/movie/get-movies`, { userId }),
+  find: async (id: number): Promise<FindMovieReturn> =>
+    Client.get("/movie/find", { id }),
 };

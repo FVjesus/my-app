@@ -6,9 +6,12 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Image,
 } from "react-native";
 import { UserContext } from "../contexts/UserContext";
 import { MovieService } from "../services/MovieService";
+
+import logo1 from "../assets/images/logo1.png";
 
 export const RegisterMovieScreen = ({ navigation }: any): ReactElement => {
   const [title, setTitle] = useState<string>();
@@ -37,6 +40,7 @@ export const RegisterMovieScreen = ({ navigation }: any): ReactElement => {
 
   return (
     <View style={styles.container}>
+      <Image source={logo1} style={styles.logo} />
       <TextInput
         style={styles.input}
         placeholder="Titulo"
@@ -104,5 +108,9 @@ const styles = StyleSheet.create({
   textDescriptionLink: {
     color: "#4B0082",
     fontSize: 12,
+  },
+  logo: {
+    width: 250,
+    height: 200,
   },
 });

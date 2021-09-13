@@ -6,6 +6,7 @@ import useCachedResources from "./hooks/useCachedResources";
 import useColorScheme from "./hooks/useColorScheme";
 import Navigation from "./navigation";
 import { UserProvider } from "./contexts/UserContext";
+import { MovieProvider } from "./contexts/MovieContext";
 
 export default function App() {
   const isLoadingComplete = useCachedResources();
@@ -16,10 +17,12 @@ export default function App() {
   } else {
     return (
       <UserProvider>
-        <SafeAreaProvider>
-          <Navigation colorScheme={colorScheme} />
-          <StatusBar />
-        </SafeAreaProvider>
+        <MovieProvider>
+          <SafeAreaProvider>
+            <Navigation colorScheme={colorScheme} />
+            <StatusBar />
+          </SafeAreaProvider>
+        </MovieProvider>
       </UserProvider>
     );
   }
