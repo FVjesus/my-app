@@ -20,6 +20,7 @@ import { UserContext } from "../contexts/UserContext";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
+import { RegisterMovieScreen } from "../screens/RegisterMovieScreen";
 import { RegisterScreen } from "../screens/RegisterScreen";
 import { SignInScreen } from "../screens/SignInScreen";
 import TabOneScreen from "../screens/TabOneScreen";
@@ -72,6 +73,7 @@ function RootNavigator() {
           <Stack.Group screenOptions={{ presentation: "modal" }}>
             <Stack.Screen name="Modal" component={ModalScreen} />
           </Stack.Group>
+          <Stack.Screen name="RegisterMovie" component={RegisterMovieScreen} />
         </>
       ) : (
         <>
