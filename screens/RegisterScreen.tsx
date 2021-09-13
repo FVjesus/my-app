@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#63C2D1",
+    backgroundColor: "#4682B4",
   },
   title: {
     fontSize: 30,
@@ -91,5 +91,6 @@ const styles = StyleSheet.create({
   textDescriptionLink: {
     color: "#4B0082",
     fontSize: 14,
+    fontWeight: "bold",
   },
 });

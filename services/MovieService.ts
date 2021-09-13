@@ -1,4 +1,8 @@
-import { CreateFavoriteReturn, CreateMovieReturn } from "../types";
+import {
+  CreateFavoriteReturn,
+  CreateMovieReturn,
+  GetMoviesReturn,
+} from "../types";
 import { Client } from "./Client";
 
 export const MovieService = {
@@ -28,4 +32,6 @@ export const MovieService = {
 
     return Client.post("/movie/create-favorite", formData);
   },
+  get: async (userId: number): Promise<GetMoviesReturn> =>
+    Client.get(`/movie/get-movies`, { userId }),
 };
