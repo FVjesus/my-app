@@ -23,6 +23,7 @@ export type RootStackParamList = {
   Login: undefined;
   Register: undefined;
   RegisterMovie: undefined;
+  Home: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -54,7 +55,7 @@ export type LoginReturn = {
 
 export type MovieBase = {
   id: number;
-  tile: string;
+  title: string;
   description: string;
   image: string;
   overview: string;
@@ -72,4 +73,8 @@ export type CreateFavoriteReturn = {
   fk_movie: number;
   updated_at: string;
   created_at: string;
+};
+
+export type GetMoviesReturn = {
+  movies: MovieBase[];
 };

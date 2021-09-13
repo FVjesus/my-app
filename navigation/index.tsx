@@ -18,6 +18,7 @@ import { ColorSchemeName, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import { UserContext } from "../contexts/UserContext";
 import useColorScheme from "../hooks/useColorScheme";
+import { HomeScreen } from "../screens/HomeScreen";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
 import { RegisterMovieScreen } from "../screens/RegisterMovieScreen";
@@ -60,6 +61,8 @@ function RootNavigator() {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {user ? (
         <>
+          <Stack.Screen name="Home" component={HomeScreen} />
+
           <Stack.Screen
             name="Root"
             component={BottomTabNavigator}
