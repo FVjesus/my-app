@@ -4,10 +4,7 @@
  */
 
 import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import {
-  CompositeScreenProps,
-  NavigatorScreenParams,
-} from "@react-navigation/native";
+import { CompositeScreenProps } from "@react-navigation/native";
 import { NativeStackScreenProps } from "@react-navigation/native-stack";
 
 declare global {
@@ -17,13 +14,11 @@ declare global {
 }
 
 export type RootStackParamList = {
-  Root: NavigatorScreenParams<RootTabParamList> | undefined;
-  Modal: undefined;
-  NotFound: undefined;
   Login: undefined;
   Register: undefined;
   RegisterMovie: undefined;
   Home: undefined;
+  Movie: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
@@ -77,4 +72,8 @@ export type CreateFavoriteReturn = {
 
 export type GetMoviesReturn = {
   movies: MovieBase[];
+};
+
+export type FindMovieReturn = {
+  movie: MovieBase;
 };

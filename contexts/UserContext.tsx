@@ -1,5 +1,4 @@
 import React, { createContext, ReactElement, useState } from "react";
-import { State } from "react-native-gesture-handler";
 import { User } from "../types";
 
 export interface IUser {

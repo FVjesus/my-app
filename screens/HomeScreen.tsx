@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ReactElement, useContext, useEffect, useState } from "react";
-import { StyleSheet, TouchableOpacity } from "react-native";
+import { StyleSheet, TouchableOpacity, Image } from "react-native";
 import Icon from "react-native-vector-icons/MaterialIcons";
 
 import { MovieItem } from "../components/MovieItem";
@@ -8,6 +8,8 @@ import { View, Text } from "../components/Themed";
 import { UserContext } from "../contexts/UserContext";
 import { MovieService } from "../services/MovieService";
 import { MovieBase } from "../types";
+
+import logo2 from "../assets/images/logo2.png";
 
 export const HomeScreen = ({ navigation }: any): ReactElement => {
   const [movies, setMovies] = useState<MovieBase[]>([]);
@@ -29,6 +31,7 @@ export const HomeScreen = ({ navigation }: any): ReactElement => {
 
   return (
     <View style={styles.container}>
+      <Image source={logo2} style={styles.logo} />
       <Text numberOfLines={2} style={styles.title}>
         Olá {user?.name}
       </Text>
@@ -38,7 +41,7 @@ export const HomeScreen = ({ navigation }: any): ReactElement => {
 
       <View style={styles.listArea}>
         {movies.map((item, key) => (
-          <MovieItem key={key} movie={item} />
+          <MovieItem key={key} movie={item} navigation={navigation} />
         ))}
       </View>
       <TouchableOpacity
@@ -59,6 +62,7 @@ const styles = StyleSheet.create({
   },
   title: {
     top: 50,
+    left: 50,
     width: 250,
     fontSize: 24,
     fontWeight: "bold",
@@ -79,5 +83,12 @@ const styles = StyleSheet.create({
     left: 20,
     bottom: 40,
     elevation: 15,
+  },
+  logo: {
+    position: "absolute",
+    width: 60,
+    height: 60,
+    top: 35,
+    left: 0,
   },
 });
