@@ -5,7 +5,7 @@ import { User } from "../types";
 export interface IUser {
   signed: boolean;
   user: User | null;
-  updateUser: (user: User) => void;
+  updateUser: (user: User | null) => void;
 }
 
 export const UserContext = createContext<IUser>({
@@ -22,7 +22,7 @@ export const UserProvider = ({
   const [user, setUser] = useState<IUser>({
     signed: false,
     user: null,
-    updateUser: (user: User) => {
+    updateUser: (user: User | null) => {
       setUser((state) => ({ ...state, user }));
     },
   });

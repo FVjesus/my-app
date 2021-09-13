@@ -7,15 +7,16 @@ import { Text, View } from "../components/Themed";
 import { UserContext } from "../contexts/UserContext";
 import { UserService } from "../services/UserService";
 
-export const SignInScreen = ({ navigation }: any): ReactElement => {
+export const RegisterScreen = ({ navigation }: any): ReactElement => {
   const [email, setEmail] = useState<string>();
   const [password, setPassword] = useState<string>();
+  const [name, setName] = useState<string>("");
   const { updateUser } = useContext(UserContext);
 
-  const handleSignIn = async () => {
+  const handleRegister = async () => {
     try {
       if (email && password) {
-        const data = await UserService.login(email, password);
+        const data = await UserService.save(email, password, name);
         updateUser(data.user);
       }
     } catch (e) {
@@ -25,7 +26,12 @@ export const SignInScreen = ({ navigation }: any): ReactElement => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Login</Text>
+      <Text style={styles.title}>Registrar</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Nome"
+        onChangeText={setName}
+      />
       <TextInput
         style={styles.input}
         placeholder="E-mail"
@@ -37,12 +43,11 @@ export const SignInScreen = ({ navigation }: any): ReactElement => {
         onChangeText={setPassword}
         secureTextEntry={true}
       />
-      <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-        <Text style={styles.textButton}>Entrar</Text>
+      <TouchableOpacity style={styles.button} onPress={handleRegister}>
+        <Text style={styles.textButton}>Criar conta</Text>
       </TouchableOpacity>
-      <Text style={styles.textDescription}>Ainda não tem uma conta?</Text>
-      <TouchableOpacity onPress={() => navigation.navigate("Register")}>
-        <Text style={styles.textDescriptionLink}>Criar agora!</Text>
+      <TouchableOpacity onPress={() => navigation.navigate("Login")}>
+        <Text style={styles.textDescriptionLink}>Já tenho conta</Text>
       </TouchableOpacity>
     </View>
   );
@@ -82,10 +87,6 @@ const styles = StyleSheet.create({
     color: "white",
     fontSize: 20,
     fontWeight: "bold",
-  },
-  textDescription: {
-    color: "white",
-    fontSize: 12,
   },
   textDescriptionLink: {
     color: "#4B0082",

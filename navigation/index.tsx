@@ -20,6 +20,7 @@ import { UserContext } from "../contexts/UserContext";
 import useColorScheme from "../hooks/useColorScheme";
 import ModalScreen from "../screens/ModalScreen";
 import NotFoundScreen from "../screens/NotFoundScreen";
+import { RegisterScreen } from "../screens/RegisterScreen";
 import { SignInScreen } from "../screens/SignInScreen";
 import TabOneScreen from "../screens/TabOneScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
@@ -75,6 +76,7 @@ function RootNavigator() {
       ) : (
         <>
           <Stack.Screen name="Login" component={SignInScreen} />
+          <Stack.Screen name="Register" component={RegisterScreen} />
         </>
       )}
     </Stack.Navigator>
